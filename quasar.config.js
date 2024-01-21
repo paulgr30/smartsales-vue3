@@ -12,7 +12,7 @@
 const { configure } = require('quasar/wrappers');
 
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function ( ctx ) {
   return {
     eslint: {
       // fix: true,
@@ -64,7 +64,11 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        API_URL: ctx.dev
+          ? "http://192.168.0.4/smartsales/smartsales-laravel10/public/"
+          : "https://prod.api.com",
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -100,7 +104,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["Notify"],
+      plugins: ["Notify", "Dialog"],
     },
 
     // animations: 'all', // --- includes all animations
