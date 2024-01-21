@@ -4,7 +4,12 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
+      { path: '', component: () => import('pages/IndexPage.vue') },
+      {
+        path: "/admin/identitydocuments",
+        name: "identity-document",
+        component: () => import("pages/identity-documents/ListPage.vue"),
+      },
     ]
   },
 

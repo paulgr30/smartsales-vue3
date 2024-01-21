@@ -1,1 +1,145 @@
 // app global css in SCSS form
+label {
+  font-size  : 13.4px;
+  font-weight: 410;
+  color      : #007bff;
+}
+
+
+
+
+
+.fs-1 {
+  font-size: 1.75rem !important;
+}
+
+.fs-2 {
+  font-size: 1.375rem !important;
+}
+
+.fs-4 {
+  font-size: 1.125rem !important;
+}
+
+.fs-5 {
+  font-size: 0.938rem !important;
+}
+
+.fs-6 {
+  font-size: 0.75rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.q-dialog .fixed-top {
+  top: 33px !important;
+}
+
+.q-field--disabled {
+  background-color: #eee !important;
+}
+
+.q-field--dense .q-field__control,
+.q-select .q-field__native,
+.q-field--auto-height,
+.q-field--dense .q-field__marginal {
+  height    : 28px !important;
+  min-height: 28px !important;
+}
+
+.q-select span {
+  margin-bottom: 15px;
+}
+
+.q-select .q-field__inner .q-field__control .q-field__control-container .q-field__input {
+  padding-bottom: 10px;
+}
+
+
+.input-prepend .q-select .q-field__control,
+.input-prepend .q-field .q-field__control {
+  padding-left: 0px;
+}
+
+.input-prepend .q-select .q-field__control-container,
+.input-prepend .q-field .q-field__control-container {
+  padding-left: 8px;
+}
+
+.input-prepend .q-select .q-field__prepend,
+.input-prepend .q-field .q-field__prepend {
+  background-color: #e9e8e8 !important;
+  padding         : 0 8px;
+  border-right    : solid 1px #aaa !important;
+}
+
+
+
+
+
+.sticky-header-table {
+  /* height or max-height is important */
+  //height: 392px;
+  height: 200px;
+
+
+  .q-table__top,
+  .q-table__bottom,
+  thead tr:first-child th {
+    /* bg color is important for th; just specify one */
+    background-color: $grey-12;
+    border-top      : solid .3px #ccc;
+    border-bottom   : solid .3px #ccc;
+  }
+
+  thead tr th {
+    position: sticky;
+    z-index : 1;
+  }
+
+  thead tr:first-child th {
+    top: 0;
+  }
+
+  /* this is when the loading indicator appears */
+  &.q-table--loading thead tr:last-child th {
+    /* height of all previous header rows */
+    top: 0px;
+  }
+
+  /* prevent scrolling behind sticky top row on focus */
+  tbody {
+    /* height of all previous header rows */
+    scroll-margin-top: 8px;
+    font-weight      : 600 !important;
+    color            : #888 !important;
+  }
+
+  tr:hover {
+    background-color: $grey-2;
+    color           : #555;
+  }
+}
+
+.q-table__middle::-webkit-scrollbar {
+  height: 10px;
+  width : 10px;
+}
+
+.q-table__middle::-webkit-scrollbar-thumb {
+  background-color     : #acb0b9;
+  border-radius        : 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius   : 4px;
+  -ms-border-radius    : 4px;
+  -o-border-radius     : 4px;
+}
