@@ -27,18 +27,12 @@ const columnList = [
     align: "left",
     sortable: true,
   },
-  {
-    name: "description",
-    field: "description",
-    label: "Descripcion",
-    align: "left",
-  },
   { name: "is_active", label: "Estado", align: "center", style: "width:12%;" },
 ];
 
 // Metodos
 const onGetByCriteria = async () => {
-  await get("api/identitydocuments/bycriteria", {
+  await get("api/categories/bycriteria", {
     name: searchBox.value,
     per_page: 100,
     page: pagingData.value.current_page,
@@ -52,12 +46,12 @@ const onShowDialog = (data = { is_active: true }) => {
 
 const onRemove = async (item) => {
   await notify.confirm().onOk(async () => {
-    await remove("api/identitydocuments", item);
+    await remove("api/categories", item);
   });
 };
 
 const onToggleStatus = async (item) => {
-  await patch(`api/identitydocuments/${item.id}`, item);
+  await patch(`api/categories/${item.id}`, item);
 };
 
 // Ejecutar
@@ -72,7 +66,7 @@ onGetByCriteria();
       <div class="col-12 col-md-10">
         <h6 class="q-my-sm">
           <q-icon name="view_list" size="md" class="q-mb-xs" />
-          Documentos de identidad
+          Categorias
         </h6>
       </div>
 

@@ -16,20 +16,20 @@ const { processing, there_error, validationErrors, post, put } = useApi();
 
 // Variables
 const dataEntered = ref(false);
-const identityDocument = ref({});
+const category = ref({});
 
 // Metodos
 const assignProperty = () => {
-  identityDocument.value = props.item;
+  category.value = props.item;
 };
 
 const onSave = async (values, actions) => {
-  identityDocument.value.id
+  category.value.id
     ? await put(
-        `api/identitydocuments/${identityDocument.value.id}`,
-        identityDocument.value
+        `api/categories/${category.value.id}`,
+        category.value
       )
-    : await post(`api/identitydocuments`, identityDocument.value);
+    : await post(`api/categories`, category.value);
 
   if (there_error.value) {
     if (validationErrors.value) {
@@ -37,10 +37,10 @@ const onSave = async (values, actions) => {
     }
   } else {
     dataEntered.value = true;
-    if (identityDocument.value.id) {
+    if (category.value.id) {
       dialogModel.value = false;
     } else {
-      identityDocument.value = { is_active: true };
+      category.value = { is_active: true };
       actions.resetForm({});
     }
   }
@@ -64,9 +64,9 @@ const dialogModel = computed({
 });
 
 const dialogTitle = computed(() => {
-  return identityDocument.value.id
-    ? "MODIFICAR DOCUMENTO DE IDENTIDAD"
-    : "REGISTRAR DOCUMENTO DE IDENTIDAD";
+  return category.value.id
+    ? "MODIFICAR CATEGORIA"
+    : "REGISTRAR CATEGORIA";
 });
 </script>
 
@@ -89,7 +89,7 @@ const dialogTitle = computed(() => {
       <q-card-section class="scroll">
         <!-- Formulario -->
         <v-form
-          :initial-values="identityDocument"
+          :initial-values="category"
           autocomplete="off"
           @submit="onSave"
         >
@@ -99,7 +99,7 @@ const dialogTitle = computed(() => {
               <label>Nombre</label>
               <v-field
                 name="name"
-                v-model="identityDocument.name"
+                v-model="category.name"
                 label="nombre"
                 rules="required"
                 v-slot="{ errorMessage, field }"
@@ -108,33 +108,7 @@ const dialogTitle = computed(() => {
                   outlined
                   dense
                   placeholder="Ingrese nombre"
-                  v-model="identityDocument.name"
-                  v-bind="field"
-                  :class="{ 'input-error': !!errorMessage }"
-                />
-                <div class="q-my-xs fs-6 text-red-8">
-                  {{ errorMessage }}
-                </div>
-              </v-field>
-            </div>
-          </div>
-
-          <div class="row">
-            <!-- Descripcion -->
-            <div class="col">
-              <label>Descripcion</label>
-              <v-field
-                name="description"
-                v-model="identityDocument.description"
-                label="descripcion"
-                rules="required"
-                v-slot="{ errorMessage, field }"
-              >
-                <q-input
-                  outlined
-                  dense
-                  placeholder="Ingrese descripcion"
-                  v-model="identityDocument.description"
+                  v-model="category.name"
                   v-bind="field"
                   :class="{ 'input-error': !!errorMessage }"
                 />
