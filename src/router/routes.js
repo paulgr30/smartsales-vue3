@@ -15,6 +15,16 @@ const routes = [
         name: "category",
         component: () => import("pages/categories/ListPage.vue"),
       },
+      {
+        path: "/admin/units",
+        name: "unit",
+        component: () => import("pages/units/ListPage.vue"),
+      },
+      {
+        path: "/admin/products",
+        name: "product",
+        component: () => import("pages/products/ListPage.vue"),
+      },
     ],
   },
 

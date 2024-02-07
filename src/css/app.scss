@@ -5,6 +5,9 @@ label {
   color      : #007bff;
 }
 
+.input-error {
+  border: solid 1px rgb(228, 75, 20);
+}
 
 
 
@@ -52,17 +55,17 @@ label {
 .q-select .q-field__native,
 .q-field--auto-height,
 .q-field--dense .q-field__marginal {
-  height    : 28px !important;
-  min-height: 28px !important;
+  height    : 32px !important;
+  min-height: 32px !important;
 }
 
-.q-select span {
+/*.q-select span {
   margin-bottom: 15px;
 }
 
 .q-select .q-field__inner .q-field__control .q-field__control-container .q-field__input {
   padding-bottom: 10px;
-}
+}*/
 
 
 .input-prepend .q-select .q-field__control,

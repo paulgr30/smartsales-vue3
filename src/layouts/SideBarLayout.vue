@@ -9,7 +9,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 // Variables
-const link = ref("ordenes");
+const link = ref("cotizaciones");
 
 // Computadas
 const dialogModel = computed({
@@ -140,14 +140,31 @@ const dialogModel = computed({
             </q-item-section>
           </q-item>
 
+          <!-- Unidades -->
+          <q-item
+            clickable
+            v-ripple
+            :active="link === 'unidad'"
+            @click="link = 'unidades'"
+            active-class="my-menu-link"
+            :to="{ name: 'unit' }"
+          >
+            <q-item-section class="q-pl-sm">
+              <q-item-label>
+                <q-icon name="radio_button_unchecked" size="xs" class="q-pb-xs" />
+                <span class="q-pl-sm">Unidades de medida</span>
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+
           <!-- Productos -->
           <q-item
             clickable
             v-ripple
-            :active="link === 'productos'"
+            :active="link === 'producto'"
             @click="link = 'productos'"
             active-class="my-menu-link"
-            :to="{ name: 'products' }"
+            :to="{ name: 'product' }"
           >
             <q-item-section class="q-pl-sm">
               <q-item-label>
