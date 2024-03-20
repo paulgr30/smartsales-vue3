@@ -52,11 +52,11 @@ const dialogModel = computed({
     <!-- Menu -->
     <div class="q-pt-none q-pl-xs q-pr-none">
       <q-list padding class="rounded-borders text-white">
-        <!-- Gestion de cotizaciones -->
+        <!-- Gestion de ventas -->
         <q-item-label header class="q-mt-md q-pb-xs text-grey-4">
-          GESTION DE COTIZACIONES
+          GESTION DE VENTAS
         </q-item-label>
-        <!-- Cotizaciones -->
+        <!-- Ventas -->
         <q-item
           clickable
           v-ripple
@@ -68,7 +68,7 @@ const dialogModel = computed({
           <q-item-section class="q-pl-sm">
             <q-item-label>
               <q-icon name="article" size="sm" />
-              <span class="q-pl-sm">Cotizaciones</span>
+              <span class="q-pl-sm">Ordenes</span>
             </q-item-label>
           </q-item-section>
         </q-item>
