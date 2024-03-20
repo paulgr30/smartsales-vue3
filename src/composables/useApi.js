@@ -49,9 +49,11 @@ export function useApi() {
       pagingData.value.total_pages = data.last_page || 1;
       pagingData.value.total_records = data.total || 0;
 
-      dataList.value = dataList.value.map((obj) => {
-        return {...obj, processDeletion: false};
-      });
+      if (Array.isArray(dataList.value)) {
+        dataList.value = dataList.value.map((obj) => {
+          return { ...obj, processDeletion: false };
+        });
+      }
     } catch (error) {
       handleErrorResponse(error.response || error);
     } finally {
@@ -62,7 +64,7 @@ export function useApi() {
   const post = async (url, data) => {
     try {
       processing.value = true;
-      await api.post(url, data);
+      dataList.value = await api.post(url, data);
       there_error.value = false;
       notify.success();
     } catch (error) {
@@ -75,7 +77,7 @@ export function useApi() {
   const put = async (url, data) => {
     try {
       processing.value = true;
-      await api.put(url, data);
+      dataList.value = await api.put(url, data);
       there_error.value = false;
       notify.success();
     } catch (error) {
