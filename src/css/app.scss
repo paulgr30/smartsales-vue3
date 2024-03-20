@@ -80,10 +80,23 @@ label {
 
 .input-prepend .q-select .q-field__prepend,
 .input-prepend .q-field .q-field__prepend {
-  background-color: #e9e8e8 !important;
+  //background-color: #e9e8e8 !important;
   padding         : 0 8px;
   border-right    : solid 1px #aaa !important;
 }
+
+
+
+.q-append .q-field__control {
+  padding-right: 0px;
+}
+
+
+
+
+
+
+
 
 
 

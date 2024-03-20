@@ -1,14 +1,16 @@
 import { Dialog, Notify } from "quasar";
 
 const confirm = (
-  message = "<span class='q-mt-none text-body1'>No podras revertir esto !!</span>"
+  message = "<span class='q-mt-none text-body1'>No podras revertir esto !!</span>",
+  labelOk = "Si",
+  labelCancel = "No"
 ) => {
   return Dialog.create({
     title: "<span class='q-pb-none text-bold fs-3'>Estas seguro ?</span>",
     message: message,
     html: true,
     cancel: {
-      label: "No, cancelar",
+      label: labelCancel,
       dense: true,
       "no-caps": true,
       color: "negative",
@@ -16,7 +18,7 @@ const confirm = (
       style: "width:120px; height:35px",
     },
     ok: {
-      label: "Si, eliminar !!",
+      label: labelOk,
       dense: true,
       color: "green-7",
       class: "q-mr-sm text-center",
