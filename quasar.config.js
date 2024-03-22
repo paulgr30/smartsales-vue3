@@ -67,7 +67,7 @@ module.exports = configure(function ( ctx ) {
       env: {
         API_URL: ctx.dev
           ? "http://192.168.0.7/smartsales/smartsales-laravel10/public/"
-          : "https://prod.api.com",
+          : "https://smartsales-api.up.railway.app/"
       },
       // rawDefine: {}
       // ignorePublicFolder: true,
