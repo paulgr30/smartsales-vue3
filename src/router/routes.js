@@ -1,10 +1,19 @@
 
 const routes = [
   {
+    path: "/login",
+    name: "login",
+    component: () => import("pages/auth/LoginPage.vue"),
+  },
+  {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/IndexPage.vue") },
+      {
+        path: "",
+        name: "home",
+        component: () => import("pages/IndexPage.vue"),
+      },
       {
         path: "/admin/orders",
         name: "order",
@@ -34,6 +43,16 @@ const routes = [
         path: "/admin/products",
         name: "product",
         component: () => import("pages/products/ListPage.vue"),
+      },
+      {
+        path: "/admin/profile",
+        name: "profile",
+        component: () => import("pages/auth/ProfilePage.vue"),
+      },
+      {
+        path: "/admin/logout",
+        name: "logout",
+        component: () => import("pages/auth/LogoutPage.vue"),
       },
     ],
   },
