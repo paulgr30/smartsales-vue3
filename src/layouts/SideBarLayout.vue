@@ -202,13 +202,14 @@ const dialogModel = computed({
             </q-item-section>
           </q-item>
 
-          <!-- Usuarios -->
+          <!-- Personal / Usuarios -->
           <q-item
             clickable
             v-ripple
             :active="link === 'usuario'"
             @click="link = 'usuario'"
             active-class="my-menu-link"
+            :to="{ name: 'user' }"
           >
             <q-item-section class="q-pl-sm">
               <q-item-label>
