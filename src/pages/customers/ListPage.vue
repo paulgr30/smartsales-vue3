@@ -55,7 +55,7 @@ const columnList = [
 
 // Metodos
 const onGetByCriteria = async () => {
-  await get("api/users/bycriteria", {
+  await get("api/customers/bycriteria", {
     name: searchBox.value,
     number_id: searchBox.value,
     per_page: 100,
@@ -70,7 +70,7 @@ const onShowDialog = (data = { is_active: true }) => {
 
 const onRemove = async (item) => {
   await notify.confirm().onOk(async () => {
-    await remove("api/users", item);
+    await remove("api/customers", item);
   });
 };
 

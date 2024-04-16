@@ -128,7 +128,7 @@ const assignProperty = async () => {
 };
 
 const onGetCustomers = async () => {
-  await get("api/users");
+  await get("api/customers");
 
   customerList.value = dataList.value.map((customer) => ({
     ...customer,

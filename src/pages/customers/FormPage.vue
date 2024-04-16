@@ -74,7 +74,7 @@ const onGetByNumberId = async () => {
   await customerForm.value.resetForm();
   profile.value = { identity_document_id, number_id };
 
-  await get("api/users/bynumberid", {
+  await get("api/customers/bynumberid", {
     profile: { number_id: profile.value.number_id },
   });
 
@@ -91,9 +91,10 @@ const onGetByNumberId = async () => {
 
 const onSave = async (values, actions) => {
   customer.value.profile = profile.value;
+
   customer.value.id
-    ? await put(`api/users/${customer.value.id}`, customer.value)
-    : await post(`api/users`, customer.value);
+    ? await put(`api/customers/${customer.value.id}`, customer.value)
+    : await post(`api/customers`, customer.value);
 
   if (there_error.value) {
     if (validationErrors.value) {
