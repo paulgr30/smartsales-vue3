@@ -22,14 +22,9 @@ export default boot(({ router, store }) => {
       config.headers = {
         Accept: "application/json",
         Authorization: `Bearer${authStore.getAuth.token.value}`,
-        "Content-Type": "application/json", //"application/x-www-form-urlencoded",
+        //"Content-Type": "application/json", //"application/x-www-form-urlencoded",
         "X-Requested-With": "XMLHttpRequest",
       };
-
-      /*const token = authStore.getAuth.token.value;
-      if (token) {
-        config.headers["Authorization"] = `Bearer${token}`;
-      }*/
 
       // Si no se ha intentado refrescar el token
       if (!authStore.getAuth.originalRequest._retry) {

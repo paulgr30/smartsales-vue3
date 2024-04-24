@@ -193,6 +193,7 @@ const dialogModel = computed({
             :active="link === 'configuracion'"
             @click="link = 'configuracion'"
             active-class="my-menu-link"
+            :to="{ name: 'config' }"
           >
             <q-item-section class="q-pl-sm">
               <q-item-label>
