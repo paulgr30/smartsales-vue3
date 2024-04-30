@@ -11,6 +11,7 @@ export const useAuthStore = defineStore("auth", {
         value: null,
       },
       expires_at: 0,
+      originalRequest: {},
     },
   }),
   getters: {
@@ -44,6 +45,7 @@ export const useAuthStore = defineStore("auth", {
           value: null,
           expires_at: 0,
         },
+        originalRequest: {},
       };
 
       this.router.push({ name: "login" });

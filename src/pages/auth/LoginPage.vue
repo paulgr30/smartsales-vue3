@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from "vue";
+import { useApi } from "src/composables/useApi";
 import { useAuthStore } from "src/stores/authStore";
 import notify from "src/utils/notify";
+
+// Composable
+const { dataList, get } = useApi();
 
 // Variables
 const authStore = useAuthStore();
 
 const processing = ref(false);
 const errorMessage = ref("");
+const image = ref("");
 const credentials = ref({
   username: "12345678",
   password: "12345678",
@@ -43,11 +48,29 @@ const onLogin = async (values, actions) => {
 const bannerClose = () => {
   errorMessage.value = "";
 };
+
+const loadImage = async () => {
+  await get("api/configurations/image");
+  image.value = process.env.IMAGE_URL + dataList.value;
+};
+
+loadImage();
 </script>
 
 <style scoped>
 .q-card {
   width: 360px;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.image-wrapper img {
+  object-fit: cover;
+  width: 30%;
+  height: 30%;
 }
 </style>
 
@@ -57,21 +80,23 @@ const bannerClose = () => {
       <q-page class="flex flex-center bg-grey-2">
         <div class="bg-grey-4 window-height window-width row justify-center">
           <div class="column q-mt-xl q-pt-xl">
-            <div class="text-center q-mb-sm">
+            <div class="image-wrapper text-center q-mb-sm">
               <img
                 alt="SmartSales App"
-                src="~assets/quasar-logo-vertical.svg"
-                style="width: 200px; height: 200px"
+                :src="image"
+                style="width: 350px; height: 250px"
               />
               <p />
-              <span class="q-mt-md text-bold fs-2"
+              <span class="text-bold fs-2"
                 >Sistema de Gestión de Ventas</span
               >
               <br />
-              <span class="fs-5">Inicia sesión a continuación para acceder al sistema</span>
+              <span class="fs-5"
+                >Inicia sesión a continuación para acceder al sistema</span
+              >
             </div>
 
-            <div class="row">
+            <div class="row text-center">
               <q-card bordered class="q-pa-none shadow-1">
                 <!-- Banner de alerta -->
                 <q-banner

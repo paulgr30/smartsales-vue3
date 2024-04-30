@@ -66,11 +66,11 @@ module.exports = configure(function ( ctx ) {
       // analyze: true,
       env: {
         API_URL: ctx.dev
-          ? "http://192.168.0.5/smartsales/smartsales-laravel10/public/"
+          ? "http://smartsales.test/smartsales-laravel10/public/"
           : "https://smartsales-api.up.railway.app/",
 
         IMAGE_URL: ctx.dev
-          ? "http://192.168.0.5/smartsales/smartsales-laravel10/public/storage/"
+          ? "http://smartsales.test/smartsales-laravel10/public/storage/"
           : "https://smartsales-api.up.railway.app/storage/"
       },
       // rawDefine: {}

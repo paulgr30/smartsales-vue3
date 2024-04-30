@@ -76,6 +76,7 @@ export default boot(({ router, store }) => {
             value: null,
           },
           expires_at: 0,
+          originalRequest: {},
         };
         router.push({ name: "login" });
       }
